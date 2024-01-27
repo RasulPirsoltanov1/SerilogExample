@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Serilog.Business.Interfaces;
 using SerilogExample.Core.Entities;
 using SerilogExample.DataAccess.Context;
 
@@ -12,12 +14,16 @@ namespace SerilogExample.Web.Areas.Admin.Controllers
     {
         // GET: ProductController
         AppDbContext _dbContext;
+        IMailService _mailService;
         ILogger<ProductController> _logger;
+        UserManager<AppUser> _userManager;
 
-        public ProductController(AppDbContext dbContext, ILogger<ProductController> logger)
+        public ProductController(AppDbContext dbContext, ILogger<ProductController> logger, IMailService mailService, UserManager<AppUser> userManager)
         {
             _dbContext = dbContext;
             _logger = logger;
+            _mailService = mailService;
+            _userManager = userManager;
         }
 
         public ActionResult Index()
@@ -78,19 +84,26 @@ namespace SerilogExample.Web.Areas.Admin.Controllers
 
 
         // POST: ProductController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
+            var user = await _userManager.FindByNameAsync(User?.Identity?.Name);
+            if (user == null)
+                return RedirectToAction(nameof(Index));
             var product = _dbContext.Products.SingleOrDefault(x => x.Id == id);
             try
             {
                 _dbContext.Products.Remove(product);
                 _dbContext.SaveChanges();
-                _logger.LogWarning($@"User: {User?.Identity?.Name??"Anonymus user"} |  Deleted Product {{Id: {product.Id},Name: {product.Name}}}");
+                string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}} |  Deleted Product {{Id: {product.Id},Name: {product.Name}}}";
+                _logger.LogWarning(message);
+                _mailService.SendMail(user.Email, LogLevel.Warning.ToString(), message, url: $"https://localhost:7127/Admin/Log/index");
                 return RedirectToAction(nameof(Index));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                _logger.LogError(exception: ex,$@"User: {User?.Identity?.Name ?? "Anonymus user"} |  Deleted Product {{Id: {product?.Id},Name: {product?.Name}}}");
+                string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}} |  Deleted Product {{Id: {product.Id},Name: {product.Name}}}";
+                _logger.LogError(exception: ex, message);
+                _mailService.SendMail(user.Email, LogLevel.Warning.ToString(), message, $"https://localhost:7127/Admin/Log/index");
                 return RedirectToAction(nameof(Index));
             }
         }

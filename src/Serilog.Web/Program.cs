@@ -3,17 +3,13 @@ using SerilogExample.DataAccess;
 using SerilogExample.DataAccess.Context;
 using SerilogExample.Core.Entities;
 using SerilogExample.Business;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Serilog.Formatting;
 using Serilog.Events;
 using System.Globalization;
 using Serilog.Sinks.SystemConsole.Themes;
 using Serilog.Core;
 using Serilog.Sinks.MSSqlServer;
-using Serilog.AspNetCore;
 using Serilog;
+using Serilog.Business;
 //using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,12 +23,10 @@ builder.Configuration.AddJsonFile("appsettings.json", false).AddJsonFile($"appse
 
 
 builder.Services.AddDataAccess(builder.Configuration);
-builder.Services.AddHttpContextAccessor();
 
-#region Serilog_Configurations
+#region SerilogConfigs
 try
 {
-
     // Logger konfigurasiyasını yarat
     Logger loggerConfiguration = new LoggerConfiguration()
       .ReadFrom.Configuration(new ConfigurationBuilder()
@@ -56,9 +50,9 @@ try
             AutoCreateSqlTable = true,
             SchemaName = "dbo"
         },
-        columnOptions: new SerilogHelper().GetColumnOptions(),
-        restrictedToMinimumLevel: LogEventLevel.Information
-        ).Enrich.FromLogContext()
+        restrictedToMinimumLevel: LogEventLevel.Warning
+        )
+      .Enrich.FromLogContext()
       .CreateLogger();
 
 
@@ -71,9 +65,9 @@ try
 catch (Exception ex)
 {
     Console.WriteLine($"Message : {ex.Message}");
+    throw new Exception(ex.Message,ex.InnerException);
 }
 #endregion
-
 
 
 
@@ -117,7 +111,9 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-//await builder.Services.AddStartupConfigurationsAsync();
+//business configurations
+await builder.Services.AddStartupConfigurationsAsync();
+builder.Services.AddBusiness();
 
 
 var app = builder.Build();
