@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Serilog.Core.Constants
+namespace SerilogExample.Core.Constants
 {
     public enum UserRoles
     {

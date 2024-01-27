@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Serilog.Business.DTO_s
+namespace SerilogExample.Business.DTO_s
 {
     public class RegisterDTO
     {

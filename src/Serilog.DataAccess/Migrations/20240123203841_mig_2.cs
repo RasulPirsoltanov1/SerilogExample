@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Serilog.DataAccess.Migrations
+namespace SerilogExample.DataAccess.Migrations
 {
     public partial class mig_2 : Migration
     {

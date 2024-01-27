@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog.Core.Constants;
-using Serilog.Core.Entities;
-using Serilog.DataAccess.Context;
+using SerilogExample.Core.Constants;
+using SerilogExample.Core.Entities;
+using SerilogExample.DataAccess.Context;
 
-namespace Serilog.Business
+namespace SerilogExample.Business
 {
     public static class StartupConfigurations
     {
         public static async Task<IServiceCollection> AddStartupConfigurationsAsync(this IServiceCollection services)
         {
-            AppDbContext _dbContext= services.BuildServiceProvider().GetService<AppDbContext>();
-            try
-            {
-                if (_dbContext.Database.IsSqlServer())
-                {
-                    await _dbContext.Database.MigrateAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            //AppDbContext _dbContext= services.BuildServiceProvider().GetService<AppDbContext>();
+            //try
+            //{
+            //    if (_dbContext.Database.IsSqlServer())
+            //    {
+            //        await _dbContext.Database.MigrateAsync();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw;
+            //}
 
             UserManager<AppUser> userManager = services.BuildServiceProvider().GetService<UserManager<AppUser>>();
             RoleManager<AppRole> roleManager = services.BuildServiceProvider().GetService<RoleManager<AppRole>>();

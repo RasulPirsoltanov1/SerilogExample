@@ -1,0 +1,54 @@
+2024-01-27 11:39:03.068 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-27 11:39:03.778 +04:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-01-27 11:39:03.820 +04:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-01-27 11:39:03.828 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-01-27 11:39:03.831 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-01-27 11:39:03.852 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-01-27 11:39:03.870 +04:00 [INF] No migrations were applied. The database is already up to date.
+2024-01-27 11:39:03.879 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-27 11:39:04.128 +04:00 [INF] Executed DbCommand (16ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-27 11:39:04.166 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-27 11:39:04.171 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-27 11:39:04.218 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-27 11:39:04.232 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-27 11:39:04.557 +04:00 [INF] User profile is available. Using 'C:\Users\Rasul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-27 11:39:05.016 +04:00 [INF] Now listening on: https://localhost:7127
+2024-01-27 11:39:05.018 +04:00 [INF] Now listening on: http://localhost:5036
+2024-01-27 11:39:05.023 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-27 11:39:05.026 +04:00 [INF] Hosting environment: Development
+2024-01-27 11:39:05.027 +04:00 [INF] Content root path: C:\Users\Rasul\Desktop\Serilog_Presentation\Serilog\src\Serilog.Web\
+2024-01-27 11:39:05.091 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/ - -
+2024-01-27 11:39:05.216 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Controllers.HomeController.Index (Serilog.Web)'
+2024-01-27 11:39:05.230 +04:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller SerilogExample.Web.Controllers.HomeController (Serilog.Web).
+2024-01-27 11:39:05.244 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-27 11:39:05.305 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-27 11:39:05.314 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-27 11:39:05.378 +04:00 [INF] Executed ViewResult - view Index executed in 134.1088ms.
+2024-01-27 11:39:05.382 +04:00 [INF] Executed action SerilogExample.Web.Controllers.HomeController.Index (Serilog.Web) in 146.685ms
+2024-01-27 11:39:05.385 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Controllers.HomeController.Index (Serilog.Web)'
+2024-01-27 11:39:05.397 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/ - - - 200 - text/html;+charset=utf-8 311.0387ms
+2024-01-27 11:39:05.785 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-27 11:39:05.790 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 4.5470ms
+2024-01-27 11:39:09.281 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-27 11:39:09.306 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 25.0740ms

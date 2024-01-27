@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Serilog.Core.Entities
+namespace SerilogExample.Core.Entities
 {
     public class AppRole:IdentityRole<int>
     {

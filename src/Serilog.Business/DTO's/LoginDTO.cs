@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Serilog.Business.DTO_s
+namespace SerilogExample.Business.DTO_s
 {
     public class LoginDTO
     {

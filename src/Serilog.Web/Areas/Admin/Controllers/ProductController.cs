@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Serilog.Core.Entities;
-using Serilog.DataAccess.Context;
+using SerilogExample.Core.Entities;
+using SerilogExample.DataAccess.Context;
 
-namespace Serilog.Web.Areas.Admin.Controllers
+namespace SerilogExample.Web.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Authorize(Roles = "Admin,Moderator")]
@@ -12,10 +12,12 @@ namespace Serilog.Web.Areas.Admin.Controllers
     {
         // GET: ProductController
         AppDbContext _dbContext;
+        ILogger<ProductController> _logger;
 
-        public ProductController(AppDbContext dbContext)
+        public ProductController(AppDbContext dbContext, ILogger<ProductController> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         public ActionResult Index()
@@ -78,15 +80,17 @@ namespace Serilog.Web.Areas.Admin.Controllers
         // POST: ProductController/Delete/5
         public ActionResult Delete(int id)
         {
+            var product = _dbContext.Products.SingleOrDefault(x => x.Id == id);
             try
             {
-                var product = _dbContext.Products.SingleOrDefault(x => x.Id == id);
                 _dbContext.Products.Remove(product);
                 _dbContext.SaveChanges();
+                _logger.LogWarning($@"User: {User?.Identity?.Name??"Anonymus user"} |  Deleted Product {{Id: {product.Id},Name: {product.Name}}}");
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception ex)
             {
+                _logger.LogError(exception: ex,$@"User: {User?.Identity?.Name ?? "Anonymus user"} |  Deleted Product {{Id: {product?.Id},Name: {product?.Name}}}");
                 return RedirectToAction(nameof(Index));
             }
         }

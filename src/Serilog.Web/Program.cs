@@ -1,14 +1,20 @@
-using Microsoft.AspNetCore.Identity;
-using Serilog.DataAccess;
-using Microsoft.EntityFrameworkCore;
-using Serilog.DataAccess.Context;
-using Serilog.Core.Entities;
-using Serilog.Business;
+﻿using Microsoft.AspNetCore.Identity;
+using SerilogExample.DataAccess;
+using SerilogExample.DataAccess.Context;
+using SerilogExample.Core.Entities;
+using SerilogExample.Business;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
+using Serilog.Formatting;
+using Serilog.Events;
+using System.Globalization;
+using Serilog.Sinks.SystemConsole.Themes;
+using Serilog.Core;
+using Serilog.Sinks.MSSqlServer;
+using Serilog.AspNetCore;
 using Serilog;
-using System.Configuration;
+//using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,16 +23,66 @@ builder.Services.AddControllersWithViews();
 
 
 
-//DataAccess Layer
 builder.Configuration.AddJsonFile("appsettings.json", false).AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true);
-var logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
+
+
+builder.Services.AddDataAccess(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
+
+#region Serilog_Configurations
+try
+{
+
+    // Logger konfigurasiyasını yarat
+    Logger loggerConfiguration = new LoggerConfiguration()
+      .ReadFrom.Configuration(new ConfigurationBuilder()
+        .AddJsonFile("appsettings.serilog-configs.json")
+        .Build()).WriteTo.Console(
+           restrictedToMinimumLevel: LogEventLevel.Warning,
+           outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+           syncRoot: true,
+           applyThemeToRedirectedOutput: true,
+           formatProvider: new CultureInfo("en"),
+           theme: SystemConsoleTheme.Colored)
+        .WriteTo.File($"{Directory.GetCurrentDirectory()}/logs.txt")
+       // loglari Db yə yazmaq ucun "Serilog.Sinks.MSSqlServer" paketini yuklemek lazimdir
+       .WriteTo.MSSqlServer(
+        connectionString: "Data Source=DESKTOP-NG2G057;Initial Catalog=SerilogExampleDB;Integrated Security=True ;TrustServerCertificate=True",
+        sinkOptions: new MSSqlServerSinkOptions
+        {
+            BatchPeriod = TimeSpan.FromSeconds(5),
+            BatchPostingLimit = 100,
+            TableName = "SerilogTable",
+            AutoCreateSqlTable = true,
+            SchemaName = "dbo"
+        },
+        columnOptions: new SerilogHelper().GetColumnOptions(),
+        restrictedToMinimumLevel: LogEventLevel.Information
+        ).Enrich.FromLogContext()
+      .CreateLogger();
+
+
+    // Mövcud loglama providerlerini təmizləyirik
+    builder.Logging.ClearProviders();
+
+    // Serilog'u loglama provideri kimi əlavə et
+    builder.Logging.AddSerilog(loggerConfiguration);
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"Message : {ex.Message}");
+}
+#endregion
+
+
+
+
+
+
 
 
 //Identity
-builder.Services.AddIdentity<AppUser,AppRole>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<AppUser, AppRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<AppDbContext>();
 builder.Services.AddRazorPages();
 
@@ -61,8 +117,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 
-builder.Services.AddDataAccess(builder.Configuration);
-await builder.Services.AddStartupConfigurationsAsync();
+//await builder.Services.AddStartupConfigurationsAsync();
 
 
 var app = builder.Build();

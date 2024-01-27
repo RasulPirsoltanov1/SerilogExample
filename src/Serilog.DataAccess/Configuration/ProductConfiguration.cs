@@ -1,14 +1,14 @@
 ﻿using Bogus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Serilog.Core.Entities;
+using SerilogExample.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Serilog.DataAccess.Configuration
+namespace SerilogExample.DataAccess.Configuration
 {
     public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {

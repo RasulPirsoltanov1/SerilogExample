@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Serilog.Web.Controllers
+namespace SerilogExample.Web.Controllers
 {
     public class HomeController : Controller
     {

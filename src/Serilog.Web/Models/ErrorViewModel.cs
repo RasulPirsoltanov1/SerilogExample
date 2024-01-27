@@ -1,4 +1,4 @@
-namespace Serilog.Web.Models
+namespace SerilogExample.Web.Models
 {
     public class ErrorViewModel
     {

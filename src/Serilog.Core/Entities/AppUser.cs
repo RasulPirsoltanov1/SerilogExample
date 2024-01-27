@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Serilog.Core.Entities
+namespace SerilogExample.Core.Entities
 {
     public class AppUser:IdentityUser<int>
     {

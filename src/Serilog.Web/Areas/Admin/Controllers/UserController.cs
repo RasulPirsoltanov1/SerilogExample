@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Serilog.Core.Entities;
+using SerilogExample.Core.Entities;
 
-namespace Serilog.Web.Areas.Admin.Controllers
+namespace SerilogExample.Web.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Authorize(Roles = "Admin")]

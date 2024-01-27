@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Serilog.Core.Entities;
-using Serilog.Business.DTO_s;
-using Serilog.Core.Constants;
+using SerilogExample.Core.Entities;
+using SerilogExample.Business.DTO_s;
+using SerilogExample.Core.Constants;
 using Microsoft.AspNetCore.Authorization;
 
 
-namespace Serilog.Web.Controllers
+namespace SerilogExample.Web.Controllers
 {
     public class AuthController : Controller
     {

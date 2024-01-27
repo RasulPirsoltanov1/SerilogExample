@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Serilog.DataAccess.Context;
+using SerilogExample.DataAccess.Context;
 
-namespace Serilog.Web.ViewComponents
+namespace SerilogExample.Web.ViewComponents
 {
     public class ProductsComponent:ViewComponent
     {

@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Serilog.DataAccess.Context;
+using SerilogExample.DataAccess.Context;
 
 #nullable disable
 
-namespace Serilog.DataAccess.Migrations
+namespace SerilogExample.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20240123204142_mig_3")]
