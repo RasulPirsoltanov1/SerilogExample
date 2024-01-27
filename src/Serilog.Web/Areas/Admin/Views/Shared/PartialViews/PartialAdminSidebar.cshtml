@@ -1,0 +1,31 @@
+﻿<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="~/AdminUI/#">
+            <img src="https://raw.githubusercontent.com/serilog/serilog.github.io/master/images/serilog-180px.png" height="50" width="50" style="border-radius: 50%;" alt="Admin Panel" />   Serilog Admin
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li>
+                    <a asp-controller="Product" asp-action="Index" asp-area="admin">
+                        <i class="fas fa-chart-bar"></i>Products
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Product" asp-action="Create" asp-area="admin">
+                        <i class="fas fa-chart-bar"></i>Add Product
+                    </a>
+                </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>
+                        <a asp-controller="User" asp-action="Index" asp-area="admin">
+                            <i class="fas fa-chart-bar"></i>Users
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</aside>

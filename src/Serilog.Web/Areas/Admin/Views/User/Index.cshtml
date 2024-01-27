@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Serilog.Core.Entities
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject UserManager<AppUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<title>Admin | Users</title>
+
+@model List<AppUser>
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="overview-wrap">
+                        <h2 class="title-1">overview</h2>
+                        <button class="au-btn au-btn-icon au-btn--blue">
+                            <i class="zmdi zmdi-plus"></i>Users
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    @if (Model is not null && Model.Any())
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Roles</th>
+                                    <th scope="col">Delete</th>
+                                    <th scope="col">Edit Roles</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var roles = await UserManager.GetRolesAsync(item);
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.UserName</td>
+                                        <td>@string.Join(", ", roles)</td>
+                                        <td>
+                                            <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id" asp-area="admin" asp-controller="product">Delete</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-primary text-white" asp-action="AddRole" asp-route-id="@item.Id" asp-area="admin" asp-controller="User">Edit Roles</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            Have not any user yet!
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
