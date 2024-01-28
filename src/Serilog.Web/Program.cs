@@ -40,8 +40,10 @@ try
            theme: SystemConsoleTheme.Colored)
         .WriteTo.File($"{Directory.GetCurrentDirectory()}/logs.txt")
        // loglari Db yə yazmaq ucun "Serilog.Sinks.MSSqlServer" paketini yuklemek lazimdir
+       // loglari File yə yazmaq ucun "Serilog.Sinks.File" paketini yuklemek lazimdir
+       // loglari Console yə yazmaq ucun "Serilog.Sinks.Console" paketini yuklemek lazimdir
        .WriteTo.MSSqlServer(
-        connectionString: "Data Source=DESKTOP-NG2G057;Initial Catalog=SerilogExampleDB;Integrated Security=True ;TrustServerCertificate=True",
+        connectionString: builder.Configuration["ConnectionStrings:mssql"],
         sinkOptions: new MSSqlServerSinkOptions
         {
             BatchPeriod = TimeSpan.FromSeconds(5),

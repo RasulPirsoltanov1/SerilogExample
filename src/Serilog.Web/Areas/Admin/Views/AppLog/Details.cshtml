@@ -1,0 +1,57 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Serilog.Web.Areas.Admin.Models
+@model LogVM
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-12">
+
+
+                    <h1>Log Entry Details</h1>
+
+                    @if (Model != null)
+                    {
+                        <dl class="row">
+                            <dt class="col-sm-3">ID:</dt>
+                            <dd class="col-sm-9">@Model.Id</dd>
+
+                            <dt class="col-sm-3">Message:</dt>
+                            <dd class="col-sm-9">@Model.Message</dd>
+
+                            <dt class="col-sm-3">Message Template:</dt>
+                            <dd class="col-sm-9">@Model.MessageTemplate</dd>
+
+                            <dt class="col-sm-3">Level:</dt>
+                            <dd class="col-sm-9">@Model.Level</dd>
+
+                            <dt class="col-sm-3">Timestamp:</dt>
+                            <dd class="col-sm-9">@Model.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+
+                            <dt class="col-sm-3">Exception:</dt>
+                            <dd class="col-sm-9">@(Model.Exception ?? "null")</dd>
+
+                            <dt class="col-sm-3">Properties:</dt>
+                            <dd class="col-sm-9">@Model.Properties</dd>
+                        </dl>
+                    }
+                    else
+                    {
+                        <p>No log entry details available.</p>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Serilog.Web.Areas.Admin.Models
+@model List<LogVM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row mt-5">
+                <div class="col-12">
+
+                    <h1>Log Entries</h1>
+
+                    @if (Model != null && Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Message</th>
+                                        <th>Level</th>
+                                        <th>Timestamp</th>
+                                        <th>Exception</th>
+                                        <th>Properties</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var log in Model)
+                                    {
+                                        <tr>
+                                            <td>@log.Id</td>
+                                            <td>@log.Message</td>
+                                            <td>@log.Level</td>
+                                            <td>@log.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td>@(log.Exception != null ? (log.Exception.Length > 20 ? log.Exception.Substring(0, 20) : log.Exception) : "null")</td>
+                                            <td>@(log.Properties != null ? (log.Properties.Length > 20 ? log.Properties.Substring(0, 20) : log.Properties) : "null")</td>
+                                            <td >
+                                                <a class="btn btn-info" asp-action="Details" asp-area="admin" asp-controller="AppLog" asp-route-id="@log.Id"> Details</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>No log entries available.</p>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

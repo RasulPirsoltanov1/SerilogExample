@@ -9382,3 +9382,451 @@ FROM [Products] AS [p]
 2024-01-28 01:33:57.455 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 5.6281ms
 2024-01-28 01:33:57.474 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
 2024-01-28 01:33:57.488 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 13.6795ms
+2024-01-28 01:36:08.207 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/User - -
+2024-01-28 01:36:08.222 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.UserController.Index (Serilog.Web)'
+2024-01-28 01:36:08.225 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.UserController (Serilog.Web).
+2024-01-28 01:36:08.228 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:36:08.241 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2024-01-28 01:36:08.244 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:36:08.335 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-28 01:36:08.341 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-28 01:36:08.348 +04:00 [INF] Executed ViewResult - view Index executed in 105.4324ms.
+2024-01-28 01:36:08.350 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.UserController.Index (Serilog.Web) in 125.4883ms
+2024-01-28 01:36:08.351 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.UserController.Index (Serilog.Web)'
+2024-01-28 01:36:08.355 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/User - - - 200 - text/html;+charset=utf-8 148.2115ms
+2024-01-28 01:36:08.378 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:36:08.378 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:36:08.378 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.3487ms
+2024-01-28 01:36:08.386 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 8.5610ms
+2024-01-28 01:36:08.421 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:36:08.434 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 13.1368ms
+2024-01-28 01:40:36.329 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:40:36.891 +04:00 [INF] Executed DbCommand (55ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:40:36.984 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:40:36.985 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:40:37.069 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:40:37.087 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 01:40:37.249 +04:00 [INF] User profile is available. Using 'C:\Users\Rasul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-28 01:40:37.431 +04:00 [INF] Now listening on: https://localhost:7127
+2024-01-28 01:40:37.431 +04:00 [INF] Now listening on: http://localhost:5036
+2024-01-28 01:40:37.437 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-28 01:40:37.437 +04:00 [INF] Hosting environment: Development
+2024-01-28 01:40:37.437 +04:00 [INF] Content root path: C:\Users\Rasul\Desktop\Serilog_Presentation\Serilog\src\Serilog.Web\
+2024-01-28 01:40:37.556 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/User - -
+2024-01-28 01:40:37.737 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.UserController.Index (Serilog.Web)'
+2024-01-28 01:40:37.754 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.UserController (Serilog.Web).
+2024-01-28 01:40:37.768 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:40:37.785 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2024-01-28 01:40:37.794 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:40:37.883 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-28 01:40:37.970 +04:00 [INF] Executed DbCommand (46ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-28 01:40:38.069 +04:00 [INF] Executed ViewResult - view Index executed in 269.8432ms.
+2024-01-28 01:40:38.079 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.UserController.Index (Serilog.Web) in 324.3275ms
+2024-01-28 01:40:38.080 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.UserController.Index (Serilog.Web)'
+2024-01-28 01:40:38.096 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:40:38.096 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:40:38.098 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 2.3482ms
+2024-01-28 01:40:38.101 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/User - - - 200 - text/html;+charset=utf-8 551.3811ms
+2024-01-28 01:40:38.102 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 6.0723ms
+2024-01-28 01:40:38.107 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:40:38.153 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.0175ms
+2024-01-28 01:40:40.615 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Log - -
+2024-01-28 01:40:40.645 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Log - - - 404 0 - 29.5645ms
+2024-01-28 01:41:05.600 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Log - -
+2024-01-28 01:41:05.607 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Log - - - 404 0 - 7.1460ms
+2024-01-28 01:41:06.207 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Log - -
+2024-01-28 01:41:06.212 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Log - - - 404 0 - 5.1520ms
+2024-01-28 01:41:10.658 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/AppLog - -
+2024-01-28 01:41:10.661 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/AppLog - - - 404 0 - 2.3723ms
+2024-01-28 01:41:14.082 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/AppLog - -
+2024-01-28 01:41:14.085 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/AppLog - - - 404 0 - 3.7745ms
+2024-01-28 01:41:18.227 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/AppLog/index - -
+2024-01-28 01:41:18.243 +04:00 [INF] Executing endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web)'
+2024-01-28 01:41:18.246 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "AppLog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Serilog.Web.Areas.Admin.Controllers.AppLogController (Serilog.Web).
+2024-01-28 01:41:18.264 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:41:18.286 +04:00 [INF] Executed ViewResult - view Index executed in 23.3533ms.
+2024-01-28 01:41:18.286 +04:00 [INF] Executed action Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web) in 40.4424ms
+2024-01-28 01:41:18.286 +04:00 [INF] Executed endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web)'
+2024-01-28 01:41:18.287 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/AppLog/index - - - 200 - text/html;+charset=utf-8 59.9760ms
+2024-01-28 01:41:18.389 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:41:18.390 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.7960ms
+2024-01-28 01:41:18.390 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:41:18.395 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 4.9736ms
+2024-01-28 01:41:18.396 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:41:18.409 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 12.6464ms
+2024-01-28 01:42:00.415 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:42:00.915 +04:00 [INF] Executed DbCommand (55ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:42:01.008 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:42:01.009 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:42:01.074 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:42:01.085 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 01:42:01.237 +04:00 [INF] User profile is available. Using 'C:\Users\Rasul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-28 01:42:01.404 +04:00 [INF] Now listening on: https://localhost:7127
+2024-01-28 01:42:01.404 +04:00 [INF] Now listening on: http://localhost:5036
+2024-01-28 01:42:01.408 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-28 01:42:01.409 +04:00 [INF] Hosting environment: Development
+2024-01-28 01:42:01.409 +04:00 [INF] Content root path: C:\Users\Rasul\Desktop\Serilog_Presentation\Serilog\src\Serilog.Web\
+2024-01-28 01:42:01.531 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/AppLog/index - -
+2024-01-28 01:42:01.683 +04:00 [INF] Executing endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web)'
+2024-01-28 01:42:01.699 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "AppLog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Serilog.Web.Areas.Admin.Controllers.AppLogController (Serilog.Web).
+2024-01-28 01:42:01.717 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:42:01.878 +04:00 [INF] Executed ViewResult - view Index executed in 156.0735ms.
+2024-01-28 01:42:01.880 +04:00 [INF] Executed action Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web) in 180.071ms
+2024-01-28 01:42:01.880 +04:00 [INF] Executed endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web)'
+2024-01-28 01:42:01.906 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/AppLog/index - - - 200 - text/html;+charset=utf-8 379.8544ms
+2024-01-28 01:42:01.906 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:42:01.906 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:42:01.908 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 2.2538ms
+2024-01-28 01:42:01.913 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:42:01.915 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 8.8319ms
+2024-01-28 01:42:01.957 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.0689ms
+2024-01-28 01:42:11.180 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/Admin/AppLog/Index - -
+2024-01-28 01:42:11.206 +04:00 [INF] Executing endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web)'
+2024-01-28 01:42:11.206 +04:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "AppLog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Serilog.Web.Areas.Admin.Controllers.AppLogController (Serilog.Web).
+2024-01-28 01:42:11.209 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:42:11.216 +04:00 [INF] Executed ViewResult - view Index executed in 6.3188ms.
+2024-01-28 01:42:11.216 +04:00 [INF] Executed action Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web) in 9.3676ms
+2024-01-28 01:42:11.216 +04:00 [INF] Executed endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Index (Serilog.Web)'
+2024-01-28 01:42:11.216 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/Admin/AppLog/Index - - - 200 - text/html;+charset=utf-8 35.9728ms
+2024-01-28 01:42:11.257 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:42:11.258 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.5300ms
+2024-01-28 01:42:11.258 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:42:11.259 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:42:11.263 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 5.2217ms
+2024-01-28 01:42:11.277 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.1177ms
+2024-01-28 01:42:39.315 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/Admin/AppLog/Details?id=10 - -
+2024-01-28 01:42:39.338 +04:00 [INF] Executing endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Details (Serilog.Web)'
+2024-01-28 01:42:39.358 +04:00 [INF] Route matched with {area = "Admin", action = "Details", controller = "AppLog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Details(Int32) on controller Serilog.Web.Areas.Admin.Controllers.AppLogController (Serilog.Web).
+2024-01-28 01:42:39.385 +04:00 [INF] Executing ViewResult, running view Details.
+2024-01-28 01:42:39.392 +04:00 [INF] Executed ViewResult - view Details executed in 8.2551ms.
+2024-01-28 01:42:39.392 +04:00 [INF] Executed action Serilog.Web.Areas.Admin.Controllers.AppLogController.Details (Serilog.Web) in 33.9326ms
+2024-01-28 01:42:39.392 +04:00 [INF] Executed endpoint 'Serilog.Web.Areas.Admin.Controllers.AppLogController.Details (Serilog.Web)'
+2024-01-28 01:42:39.392 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/Admin/AppLog/Details?id=10 - - - 200 - text/html;+charset=utf-8 77.7238ms
+2024-01-28 01:42:39.435 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:42:39.436 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:42:39.436 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.7777ms
+2024-01-28 01:42:39.441 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 4.8523ms
+2024-01-28 01:42:39.472 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:42:39.476 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 3.7825ms
+2024-01-28 01:43:40.010 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 01:43:40.012 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:43:40.014 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:43:40.031 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:43:40.047 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 01:43:40.063 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:43:40.073 +04:00 [INF] Executed ViewResult - view Index executed in 9.6835ms.
+2024-01-28 01:43:40.073 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 58.2095ms
+2024-01-28 01:43:40.073 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:43:40.076 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 66.0455ms
+2024-01-28 01:43:40.146 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:43:40.147 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.2405ms
+2024-01-28 01:43:40.150 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:43:40.153 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:43:40.167 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 17.0545ms
+2024-01-28 01:43:40.173 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.1829ms
+2024-01-28 01:43:45.656 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/product/Delete/47 - -
+2024-01-28 01:43:45.660 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 01:43:45.673 +04:00 [INF] Route matched with {area = "admin", action = "Delete", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteAsync(Int32) on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:43:45.680 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:43:45.692 +04:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 01:43:45.709 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+2024-01-28 01:43:45.814 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Products]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2024-01-28 01:43:45.831 +04:00 [WRN] User: {Admin} |  Deleted Product {Id: 47,Name: Əlverişli Polad Stol}
+2024-01-28 01:43:48.240 +04:00 [INF] Executing RedirectResult, redirecting to /admin/Product.
+2024-01-28 01:43:48.241 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web) in 2568.0395ms
+2024-01-28 01:43:48.242 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 01:43:48.244 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/product/Delete/47 - - - 302 0 - 2587.8812ms
+2024-01-28 01:43:48.247 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 01:43:48.249 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:43:48.249 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:43:48.251 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:43:48.256 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 01:43:48.257 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:43:48.259 +04:00 [INF] Executed ViewResult - view Index executed in 2.2861ms.
+2024-01-28 01:43:48.259 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 9.9909ms
+2024-01-28 01:43:48.259 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:43:48.259 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 12.4876ms
+2024-01-28 01:43:48.297 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:43:48.297 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:43:48.297 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.2914ms
+2024-01-28 01:43:48.301 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 4.4650ms
+2024-01-28 01:43:48.328 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:43:48.334 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 6.4227ms
+2024-01-28 01:45:26.209 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/product/Delete/48 - -
+2024-01-28 01:45:26.221 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 01:45:26.222 +04:00 [INF] Route matched with {area = "admin", action = "Delete", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteAsync(Int32) on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:45:26.223 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:45:26.228 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 01:45:26.232 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+2024-01-28 01:45:26.239 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Products]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2024-01-28 01:45:26.240 +04:00 [WRN] User: {Admin} |  Deleted Product {Id: 48,Name: Möhtəşəm Ağac Avtomobil}
+2024-01-28 01:45:28.468 +04:00 [INF] Executing RedirectResult, redirecting to /admin/Product.
+2024-01-28 01:45:28.468 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web) in 2246.1442ms
+2024-01-28 01:45:28.468 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 01:45:28.468 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/product/Delete/48 - - - 302 0 - 2259.0150ms
+2024-01-28 01:45:28.472 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 01:45:28.474 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:45:28.474 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:45:28.475 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:45:28.478 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 01:45:28.480 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:45:28.483 +04:00 [INF] Executed ViewResult - view Index executed in 3.9044ms.
+2024-01-28 01:45:28.484 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 9.0878ms
+2024-01-28 01:45:28.484 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:45:28.484 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 11.3550ms
+2024-01-28 01:45:28.516 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:45:28.517 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:45:28.518 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.5797ms
+2024-01-28 01:45:28.520 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 4.1485ms
+2024-01-28 01:45:31.398 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:45:31.404 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 5.4756ms
+2024-01-28 01:47:26.931 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/product/Delete/70 - -
+2024-01-28 01:47:26.936 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 01:47:26.937 +04:00 [INF] Route matched with {area = "admin", action = "Delete", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteAsync(Int32) on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:47:26.937 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:47:26.943 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 01:47:26.946 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+2024-01-28 01:47:26.948 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Products]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2024-01-28 01:47:26.950 +04:00 [WRN] User: {Admin} |  Deleted Product {Id: 70,Name: İnanılmaz Beton Sviter}
+2024-01-28 01:47:28.904 +04:00 [INF] Executing RedirectResult, redirecting to /admin/Product.
+2024-01-28 01:47:28.904 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web) in 1967.6219ms
+2024-01-28 01:47:28.904 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 01:47:28.905 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/product/Delete/70 - - - 302 0 - 1973.9541ms
+2024-01-28 01:47:28.908 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 01:47:28.909 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:47:28.909 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:47:28.910 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:47:28.913 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 01:47:28.914 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:47:28.916 +04:00 [INF] Executed ViewResult - view Index executed in 2.7169ms.
+2024-01-28 01:47:28.916 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 7.1044ms
+2024-01-28 01:47:28.916 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:47:28.917 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 9.0406ms
+2024-01-28 01:47:28.952 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:47:28.952 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.3796ms
+2024-01-28 01:47:28.952 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:47:28.956 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 3.2791ms
+2024-01-28 01:47:28.980 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:47:28.987 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 7.3670ms
+2024-01-28 01:51:20.177 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/ - -
+2024-01-28 01:51:20.188 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/ - - - 404 0 - 11.3524ms
+2024-01-28 01:51:21.868 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 01:51:21.873 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:51:21.873 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:51:21.874 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:51:21.890 +04:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 01:51:21.891 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:51:21.893 +04:00 [INF] Executed ViewResult - view Index executed in 2.3964ms.
+2024-01-28 01:51:21.893 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 20.0586ms
+2024-01-28 01:51:21.893 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:51:21.893 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 25.1995ms
+2024-01-28 01:51:21.984 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:51:21.988 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 4.1964ms
+2024-01-28 01:59:29.076 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:59:29.536 +04:00 [INF] Executed DbCommand (61ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:59:29.627 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:59:29.631 +04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 01:59:29.688 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:59:29.700 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 01:59:29.844 +04:00 [INF] User profile is available. Using 'C:\Users\Rasul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-28 01:59:30.046 +04:00 [INF] Now listening on: https://localhost:7127
+2024-01-28 01:59:30.046 +04:00 [INF] Now listening on: http://localhost:5036
+2024-01-28 01:59:30.050 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-28 01:59:30.050 +04:00 [INF] Hosting environment: Development
+2024-01-28 01:59:30.050 +04:00 [INF] Content root path: C:\Users\Rasul\Desktop\Serilog_Presentation\Serilog\src\Serilog.Web\
+2024-01-28 01:59:30.285 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 01:59:30.451 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:59:30.468 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 01:59:30.482 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 01:59:30.497 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 01:59:30.518 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 01:59:30.668 +04:00 [INF] Executed ViewResult - view Index executed in 145.9555ms.
+2024-01-28 01:59:30.669 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 200.3399ms
+2024-01-28 01:59:30.669 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 01:59:30.680 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 400.2644ms
+2024-01-28 01:59:30.773 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 01:59:30.774 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 01:59:30.776 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 2.4260ms
+2024-01-28 01:59:30.780 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 6.5423ms
+2024-01-28 01:59:34.334 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 01:59:34.394 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.0308ms
+2024-01-28 02:02:32.092 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 02:02:32.524 +04:00 [INF] Executed DbCommand (66ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 02:02:32.618 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 02:02:32.619 +04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-01-28 02:02:32.680 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 02:02:32.696 +04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 02:02:32.839 +04:00 [INF] User profile is available. Using 'C:\Users\Rasul\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-28 02:02:32.998 +04:00 [INF] Now listening on: https://localhost:7127
+2024-01-28 02:02:32.998 +04:00 [INF] Now listening on: http://localhost:5036
+2024-01-28 02:02:33.002 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-28 02:02:33.002 +04:00 [INF] Hosting environment: Development
+2024-01-28 02:02:33.002 +04:00 [INF] Content root path: C:\Users\Rasul\Desktop\Serilog_Presentation\Serilog\src\Serilog.Web\
+2024-01-28 02:02:33.515 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 02:02:33.692 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 02:02:33.713 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 02:02:33.729 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 02:02:33.748 +04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 02:02:33.770 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 02:02:33.916 +04:00 [INF] Executed ViewResult - view Index executed in 144.2435ms.
+2024-01-28 02:02:33.918 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 203.6759ms
+2024-01-28 02:02:33.918 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 02:02:33.928 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 419.1420ms
+2024-01-28 02:02:34.010 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 02:02:34.010 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 02:02:34.012 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 2.0306ms
+2024-01-28 02:02:34.016 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 6.1062ms
+2024-01-28 02:02:37.859 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 02:02:37.904 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.2970ms
+2024-01-28 02:02:39.683 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/product/Delete/49 - -
+2024-01-28 02:02:39.713 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 02:02:39.739 +04:00 [INF] Route matched with {area = "admin", action = "Delete", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DeleteAsync(Int32) on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 02:02:39.751 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 02:02:39.758 +04:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-28 02:02:39.775 +04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0
+2024-01-28 02:02:39.896 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Products]
+WHERE [Id] = @p0;
+SELECT @@ROWCOUNT;
+2024-01-28 02:02:39.915 +04:00 [WRN] User: {Admin} |  Deleted Product {Id: 49,Name: İnanılmaz Ağac Kəmər}
+2024-01-28 02:02:42.120 +04:00 [INF] Executing RedirectResult, redirecting to /admin/Product.
+2024-01-28 02:02:42.120 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web) in 2381.024ms
+2024-01-28 02:02:42.121 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.DeleteAsync (Serilog.Web)'
+2024-01-28 02:02:42.122 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/product/Delete/49 - - - 302 0 - 2438.9011ms
+2024-01-28 02:02:42.136 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/admin/Product - -
+2024-01-28 02:02:42.140 +04:00 [INF] Executing endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 02:02:42.140 +04:00 [INF] Route matched with {area = "admin", action = "Index", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Index() on controller SerilogExample.Web.Areas.Admin.Controllers.ProductController (Serilog.Web).
+2024-01-28 02:02:42.141 +04:00 [INF] Entity Framework Core 6.0.26 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.26' with options: None
+2024-01-28 02:02:42.144 +04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Category], [p].[Description], [p].[Image], [p].[Name]
+FROM [Products] AS [p]
+2024-01-28 02:02:42.146 +04:00 [INF] Executing ViewResult, running view Index.
+2024-01-28 02:02:42.153 +04:00 [INF] Executed ViewResult - view Index executed in 7.9217ms.
+2024-01-28 02:02:42.153 +04:00 [INF] Executed action SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web) in 13.5225ms
+2024-01-28 02:02:42.154 +04:00 [INF] Executed endpoint 'SerilogExample.Web.Areas.Admin.Controllers.ProductController.Index (Serilog.Web)'
+2024-01-28 02:02:42.154 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/admin/Product - - - 200 - text/html;+charset=utf-8 17.5121ms
+2024-01-28 02:02:42.186 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - -
+2024-01-28 02:02:42.186 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - -
+2024-01-28 02:02:42.186 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_framework/aspnetcore-browser-refresh.js - - - 200 13758 application/javascript;+charset=utf-8 0.5597ms
+2024-01-28 02:02:42.194 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/AdminUI/~/AdminUI/vendor/perfect-scrollbar/perfect-scrollbar.js - - - 404 0 - 8.1596ms
+2024-01-28 02:02:42.227 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7127/_vs/browserLink - -
+2024-01-28 02:02:42.247 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7127/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.9192ms

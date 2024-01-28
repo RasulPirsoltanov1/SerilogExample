@@ -16,7 +16,7 @@ namespace SerilogExample.DataAccess
         {
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer("Data Source=DESKTOP-NG2G057;Initial Catalog=SerilogExampleDB;Integrated Security=True ;TrustServerCertificate=True");
+                options.UseSqlServer(configuration["ConnectionStrings:mssql"]);
             });
             return services;
         }

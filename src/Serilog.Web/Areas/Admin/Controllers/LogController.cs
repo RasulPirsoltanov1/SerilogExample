@@ -11,7 +11,7 @@ namespace Serilog.Web.Areas.Admin.Controllers
     [Area("Admin")]
     [Route("[area]/[controller]/[action]")]
     [Authorize(Roles = "Admin")]
-    public class LogController : Controller
+    public class AppLogController : Controller
     {
         public IActionResult Index()
         {
