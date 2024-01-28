@@ -35,7 +35,7 @@
                                     {
                                         <tr>
                                             <td>@log.Id</td>
-                                            <td>@log.Message</td>
+                                            <td>@(log.Message != null ? (log.Message.Length > 70 ? log.Message.Substring(0, 70) : log.Message)+"..." : "null")</td>
                                             <td>@log.Level</td>
                                             <td>@log.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss")</td>
                                             <td>@(log.Exception != null ? (log.Exception.Length > 20 ? log.Exception.Substring(0, 20) : log.Exception) : "null")</td>
@@ -53,8 +53,6 @@
                     {
                         <p>No log entries available.</p>
                     }
-
-
                 </div>
             </div>
         </div>

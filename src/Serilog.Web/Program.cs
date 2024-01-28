@@ -10,6 +10,8 @@ using Serilog.Core;
 using Serilog.Sinks.MSSqlServer;
 using Serilog;
 using Serilog.Business;
+using Serilog.Formatting.Compact;
+using Serilog.Formatting.Json;
 //using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +21,7 @@ builder.Services.AddControllersWithViews();
 
 
 
-builder.Configuration.AddJsonFile("appsettings.json", false).AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true);
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", false);
 
 
 builder.Services.AddDataAccess(builder.Configuration);
@@ -28,20 +30,20 @@ builder.Services.AddDataAccess(builder.Configuration);
 try
 {
     // Logger konfigurasiyasını yarat
+    // loglari Db yə yazmaq ucun "Serilog.Sinks.MSSqlServer" paketini yuklemek lazimdir
+    // loglari File yə yazmaq ucun "Serilog.Sinks.File" paketini yuklemek lazimdir
+    // loglari Console yə yazmaq ucun "Serilog.Sinks.Console" paketini yuklemek lazimdir
     Logger loggerConfiguration = new LoggerConfiguration()
       .ReadFrom.Configuration(new ConfigurationBuilder()
         .AddJsonFile("appsettings.serilog-configs.json")
         .Build()).WriteTo.Console(
-           restrictedToMinimumLevel: LogEventLevel.Warning,
-           outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+           restrictedToMinimumLevel: LogEventLevel.Information,
+           outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {Message:lj}{NewLine}{Exception}",
            syncRoot: true,
            applyThemeToRedirectedOutput: true,
            formatProvider: new CultureInfo("en"),
            theme: SystemConsoleTheme.Colored)
-        .WriteTo.File($"{Directory.GetCurrentDirectory()}/logs.txt")
-       // loglari Db yə yazmaq ucun "Serilog.Sinks.MSSqlServer" paketini yuklemek lazimdir
-       // loglari File yə yazmaq ucun "Serilog.Sinks.File" paketini yuklemek lazimdir
-       // loglari Console yə yazmaq ucun "Serilog.Sinks.Console" paketini yuklemek lazimdir
+        .WriteTo.File(formatter:new JsonFormatter(),Path.Combine(Directory.GetCurrentDirectory(),"logs.json"))
        .WriteTo.MSSqlServer(
         connectionString: builder.Configuration["ConnectionStrings:mssql"],
         sinkOptions: new MSSqlServerSinkOptions
