@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog.Business.Interfaces;
+using Serilog.Context;
 using SerilogExample.Core.Constants;
 using SerilogExample.Core.Entities;
 using SerilogExample.DataAccess.Context;

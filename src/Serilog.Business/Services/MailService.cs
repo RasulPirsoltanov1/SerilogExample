@@ -394,7 +394,7 @@ namespace Serilog.Business.Services
               <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class=""wrapper"">
-                  <p>Hi there</p>
+                  <p>SerilogExample Mail Service</p>
                   <p>{body}</p>
                   <table role=""presentation"" border=""0"" cellpadding=""0"" cellspacing=""0"" class=""btn btn-primary"">
                     <tbody>
