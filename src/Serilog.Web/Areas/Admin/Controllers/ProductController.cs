@@ -56,12 +56,12 @@ namespace SerilogExample.Web.Areas.Admin.Controllers
         public async Task<ActionResult> Create(Product product)
         {
             var ipAddress = Request.HttpContext.Connection.LocalIpAddress;
-            string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}}; IP Address: {{{ipAddress}}}; | Added Product {{Category: {product.Category}, Name: {product.Name}}}
+            string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}} | Added Product {{Category: {product.Category}, Name: {product.Name}}}
                                 <hr/>
                                 <div style='text-align: center;'>
                                     <img src='{product.Image}' style='margin:auto;' height='200px'/>
                                 </div>";
-            string logMessage = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}}; IP Address: {{{ipAddress}}}; | Added Product {{Category: {product.Category}, Name: {product.Name}}}";
+            string logMessage = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}} | Added Product {{Category: {product.Category}, Name: {product.Name}}}";
             var adminRole = await _roleManager.FindByNameAsync(UserRoles.Admin.ToString());
             try
             {
@@ -150,12 +150,12 @@ namespace SerilogExample.Web.Areas.Admin.Controllers
             if (user == null)
                 return RedirectToAction(nameof(Index));
             var product = _dbContext.Products.SingleOrDefault(x => x.Id == id);
-            string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}}; IP Address: {{{ipAddress}}}; | Deleted Product {{Id: {product.Id}, Name: {product.Name}}}
+            string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}} | Deleted Product {{Id: {product.Id}, Name: {product.Name}}}
                                 <hr/>
                                 <div style='text-align: center;'>
                                     <img src='{product.Image}' style='margin:auto;' height='200px'/>
                                 </div>";
-            string logMessage= $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}}; IP Address: {{{ipAddress}}}; | Deleted Product {{Id: {product.Id}, Name: {product.Name}}}";
+            string logMessage= $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}} | Deleted Product {{Id: {product.Id}, Name: {product.Name}}}";
             try
             {
                 _dbContext.Products.Remove(product);

@@ -57,9 +57,14 @@ namespace SerilogExample.Web.Areas.Admin.Controllers
                 {
                     return NotFound($"User with ID {userId} not found.");
                 }
-                await _userManager.RemoveFromRoleAsync(dbUser, UserRoles.Admin.ToString());
-                await _userManager.RemoveFromRoleAsync(dbUser, UserRoles.Memmber.ToString());
-                await _userManager.RemoveFromRoleAsync(dbUser, UserRoles.Moderator.ToString());
+                var userRoles = Enum.GetValues(typeof(UserRoles)).Cast<UserRoles>().ToList();
+                foreach (var role in userRoles)
+                {
+                    await _userManager.RemoveFromRoleAsync(dbUser, role.ToString());
+                }
+                //await _userManager.RemoveFromRoleAsync(dbUser, UserRoles.Admin.ToString());
+                //await _userManager.RemoveFromRoleAsync(dbUser, UserRoles.Memmber.ToString());
+                //await _userManager.RemoveFromRoleAsync(dbUser, UserRoles.Moderator.ToString());
                 string message = $"User:{User?.Identity?.Name} added new roles {string.Join(",", roles)} to {dbUser.UserName}";
 
                 if (adminRole != null)
