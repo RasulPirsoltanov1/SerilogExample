@@ -10,7 +10,6 @@ using Serilog.Core;
 using Serilog.Sinks.MSSqlServer;
 using Serilog;
 using Serilog.Business;
-using Serilog.Formatting.Compact;
 using Serilog.Formatting.Json;
 //using Serilog.Sinks.MSSqlServer;
 

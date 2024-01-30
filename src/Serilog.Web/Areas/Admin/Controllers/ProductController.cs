@@ -55,8 +55,7 @@ namespace SerilogExample.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Product product)
         {
-
-            var ipAddress = Request.HttpContext.Connection.RemoteIpAddress;
+            var ipAddress = Request.HttpContext.Connection.LocalIpAddress;
             string message = $@"User: {{{User?.Identity?.Name ?? "Anonymus user"}}}; IP Address: {{{ipAddress}}}; | Added Product {{Category: {product.Category}, Name: {product.Name}}}
                                 <hr/>
                                 <div style='text-align: center;'>
